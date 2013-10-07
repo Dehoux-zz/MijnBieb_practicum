@@ -86,7 +86,8 @@
 		</action>
 		<action name="ChangePassword" class="biebActions.member.ChangePassword">
 			<result name="success">/jsp/member/WijzigWachtwoord.jsp</result>
-			<result name="input">/jsp/member/WijzigWachtwoord.jsp</result></action>
+			<result name="input">/jsp/member/WijzigWachtwoord.jsp</result>
+		</action>
 		<action name="Logout" class="biebActions.member.Logout">
 			<result name="success">/jsp/member/LoggedOut.jsp</result>
 		</action>	
@@ -98,6 +99,7 @@
 				class="biebInterceptors.RoleInterceptor" />
 			<interceptor-stack name="ManagerStack">
 				<interceptor-ref name="roleinterceptor" />
+				<interceptor-ref name="defaultStack" />
 			</interceptor-stack>
 		</interceptors>
 	
@@ -110,13 +112,18 @@
 		</global-results>
 		
 		<action name="ManagerMenu" class="biebActions.manager.ManagerMenu">
-			<result>/jsp/menu/ManagerMenu.jsp</result>
+			<result name="success">/jsp/menu/ManagerMenu.jsp</result>
 		</action>
 		<action name="UserList" class="biebActions.manager.AlleUsers">
-			<result>/jsp/manager/UserLijst.jsp</result>
+			<result name="success">/jsp/manager/UserLijst.jsp</result>
 		</action>
 		<action name="AddCoworkerForm" class="biebActions.manager.CoworkerList">
-			<result>/jsp/manager/AddCoworkerForm.jsp</result>
+			<result name="success">/jsp/manager/AddCoworkerForm.jsp</result>
+			<result name="input">/jsp/manager/AddCoworkerForm.jsp</result>
+		</action>
+		<action name="DeleteUserForm" class="biebActions.manager.DeleteUser">
+			<result name="success">/jsp/manager/DeleteUser.jsp</result>
+			<result name="input">/jsp/manager/DeleteUser.jsp</result>
 		</action>
 
 	</package>

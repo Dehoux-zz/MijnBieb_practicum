@@ -1,17 +1,17 @@
 package biebActions.manager;
 
 import java.util.ArrayList;
+
 import java.util.List;
 
-import biebDomain.Book;
 import biebDomain.User;
 import biebDomain.UserRole;
 import biebService.IBiebService;
 import biebService.ServiceProvider;
 
 import com.opensymphony.xwork2.ActionSupport;
-import com.opensymphony.xwork2.ModelDriven;
 
+@SuppressWarnings("serial")
 public class CoworkerList extends ActionSupport{
 
 	private IBiebService ibs = ServiceProvider.getBiebService();
@@ -20,6 +20,7 @@ public class CoworkerList extends ActionSupport{
 	private String password;
 
 	public String execute() throws Exception{
+		System.out.println("test");
 		if(username != null){
 			ibs.addCoworker(username,password);
 		}
@@ -36,17 +37,17 @@ public class CoworkerList extends ActionSupport{
 	}
 
 	public void validate(){
+		System.out.println("validate");
 		try{
 			username = username.trim();
 			password = password.trim();
-
+			System.out.println(username+password);
 			if (username.length() == 0 ){			
 				addFieldError( "username", "naam is verplicht");
 			}
 			else if ( ibs.userExists(username ) ){		
 				addFieldError("username", "gebruiker bestaat al");
 			}
-
 			if ( password.length() == 0 ){			
 				addFieldError( "password", "wachtwoord is verplicht");
 			}
