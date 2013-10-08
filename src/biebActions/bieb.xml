@@ -125,6 +125,24 @@
 			<result name="success">/jsp/manager/DeleteUser.jsp</result>
 			<result name="input">/jsp/manager/DeleteUser.jsp</result>
 		</action>
+		<action name="BookList" class="biebActions.visitor.BookList">
+			<result name="success">/jsp/manager/Books.jsp</result>
+		</action>
+		<action name="ManGetBookInfo" class="biebActions.visitor.GetBookInfo">
+			<result name="success">/jsp/manager/BookInfo.jsp</result>
+			<result name="input">/jsp/manager/Books.jsp</result>
+		</action>
+		<action name="DeleteBook" class="biebActions.manager.DeleteBook">
+			<result name="success">/jsp/manager/Books.jsp</result>
+			<result name="input">/jsp/manager/Books.jsp</result>
+		</action>
+		<action name="AddBookForm">
+			<result name="success">/jsp/manager/AddBookForm.jsp</result>
+		</action>
+		<action name="AddBook" class="biebActions.manager.AddBook">
+			<result name="success">/jsp/manager/Books.jsp</result>
+			<result name="input">/jsp/manager/AddBookForm.jsp</result>
+		</action>
 
 	</package>
 </struts>
