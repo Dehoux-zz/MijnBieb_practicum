@@ -28,7 +28,7 @@
 		<action name="Login" class="biebActions.visitor.Login">
 			<result name="success">/jsp/menu/MemberMenu.jsp</result>
 			<result name="managermenu">/jsp/menu/ManagerMenu.jsp</result>
-			<result name="coworkermenu">/html/not_yet_implemented.html</result>
+			<result name="coworkermenu">/jsp/menu/CoworkerMenu.jsp</result>
 			<result name="input">/jsp/visitor/LoginForm.jsp</result>
 		</action>
 	</package>
@@ -125,23 +125,43 @@
 			<result name="success">/jsp/manager/DeleteUser.jsp</result>
 			<result name="input">/jsp/manager/DeleteUser.jsp</result>
 		</action>
-		<action name="BookList" class="biebActions.visitor.BookList">
-			<result name="success">/jsp/manager/Books.jsp</result>
+
+	</package>
+	
+	<package name="coworker" namespace="/coworker" extends="struts-default">
+		<interceptors>
+			<interceptor name="coworkerinterceptor"
+				class="biebInterceptors.CoworkerInterceptor" />
+			<interceptor-stack name="CoworkerStack">
+				<interceptor-ref name="coworkerinterceptor" />
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+		</interceptors>
+	
+		<default-interceptor-ref name="CoworkerStack" />	
+		
+		<global-results>
+			<result name="login" type="redirect">
+				/visitor/LoginForm.action
+			</result>
+		</global-results>
+		
+		<action name="CoworkerMenu" class="biebActions.coworker.CoworkerMenu">
+			<result name="success">/jsp/menu/CoworkerMenu.jsp</result>
 		</action>
-		<action name="ManGetBookInfo" class="biebActions.visitor.GetBookInfo">
-			<result name="success">/jsp/manager/BookInfo.jsp</result>
-			<result name="input">/jsp/manager/Books.jsp</result>
+		<action name="LendBookForm" class="biebActions.visitor.BookList">
+			<result name="success">/jsp/coworker/LendBookForm.jsp</result>
 		</action>
-		<action name="DeleteBook" class="biebActions.manager.DeleteBook">
-			<result name="success">/jsp/manager/Books.jsp</result>
-			<result name="input">/jsp/manager/Books.jsp</result>
+		<action name="LendBook" class="biebActions.coworker.LendBook">
+			<result name="success">/jsp/coworker/LendBookForm.jsp</result>
+			<result name="input">/jsp/coworker/LendBookForm.jsp</result>
 		</action>
-		<action name="AddBookForm">
-			<result name="success">/jsp/manager/AddBookForm.jsp</result>
+		<action name="TakeBackBookForm" class="biebActions.visitor.BookList">
+			<result name="success">/jsp/coworker/TakeBackBookForm.jsp</result>
 		</action>
-		<action name="AddBook" class="biebActions.manager.AddBook">
-			<result name="success">/jsp/manager/Books.jsp</result>
-			<result name="input">/jsp/manager/AddBookForm.jsp</result>
+		<action name="TakeBackBook" class="biebActions.coworker.UnLendBook">
+			<result name="success">/jsp/coworker/TakeBackBookForm.jsp</result>
+			<result name="input">/jsp/coworker/TakeBackBookForm.jsp</result>
 		</action>
 
 	</package>

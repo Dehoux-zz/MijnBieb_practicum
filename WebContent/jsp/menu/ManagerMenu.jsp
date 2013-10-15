@@ -16,7 +16,9 @@
             <li><a href="<s:url action='AddCoworkerForm' namespace="/manager"/>">Voeg medewerker toe</a></li>	
             <li><a href="<s:url action='DeleteUserForm' namespace="/manager"/>">Verwijder user</a></li>	
             <li><a href="<s:url action='BookList' namespace="/manager"/>">Alle boeken</a></li>	
+            <li><a href="<s:url action='BookInfoForm' namespace="/manager"/>">Boekinformatie</a></li>
             <li><a href="<s:url action='AddBookForm' namespace="/manager"/>">Voeg boek toe</a></li>	
+            <li><a href="<s:url action='DeleteBookForm' namespace="/manager"/>">Verwijder boek</a></li>	
             <li><a href="<s:url action='Logout' namespace="/member"/>">Log uit</a></li>	
         </ul>
            
